@@ -1,0 +1,56 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>document</title>
+  <style>
+    body{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+    }
+    .result {
+      font-size: 20px;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+    .palindrome {
+      color: green;
+    }
+    .not-palindrome {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <input type="text" id="numInput" placeholder="Enter a number" />
+  <button onclick="checkPalindrome()">Check</button>
+  <p id="result" class="result"></p>
+
+  <script>
+    function checkPalindrome() {
+      const input = document.getElementById('numInput').value;
+      const reverse = input.split('').reverse().join('');
+      const resultPara = document.getElementById('result');
+
+      if (input === reverse) {
+        resultPara.textContent = `${input} is a Palindrome`;
+        resultPara.className = 'result palindrome';
+      } 
+      else if (input === '') {
+        resultPara.textContent = 'Please enter a number.';
+        resultPara.className = 'result';
+      }
+      else {
+        resultPara.textContent = `${input} is NOT a Palindrome.`;
+        resultPara.className = 'result not-palindrome';
+      }
+    }
+  </script>
+</body>
+</html>
